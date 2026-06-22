@@ -1,0 +1,19 @@
+.DS_Store
+.env
+.env.*
+*.log
+*.tsbuildinfo
+AI无限画布制图工作流产品开发文档.md
+
+node_modules/
+tmp/
+.ai-draw/
+output/
+
+**/node_modules/
+**/tmp/
+**/.ai-draw/
+**/output/
+**/*.tsbuildinfo
+
+# Keep ai-draw/packages/*/dist trackable for Codex Git marketplace installs.

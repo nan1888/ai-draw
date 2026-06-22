@@ -26507,8 +26507,8 @@ function buildAnnotationEditPrompt(input) {
 // ../shared/dist/image/newApiAsyncImageAdapter.js
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-var DEFAULT_MODEL = "gpt-image-2-max";
-var DEFAULT_SIZE = "1024x1536";
+var DEFAULT_MODEL = "gpt-image-2";
+var DEFAULT_SIZE = "1k";
 var DEFAULT_POLL_INTERVAL_MS = 5e3;
 var DEFAULT_TIMEOUT_MS = 42e4;
 function trimTrailingSlash(value) {
@@ -26600,7 +26600,7 @@ function resolveSize(model, providerSize, defaultSize, aspectRatio) {
   if (providerSize)
     return providerSize;
   if (supportsSeparateAspectRatio(model)) {
-    return defaultSize === DEFAULT_SIZE ? "1K" : defaultSize;
+    return defaultSize === DEFAULT_SIZE ? "1k" : defaultSize;
   }
   if (supportsRatioSize(model))
     return supportedRatio(aspectRatio) ?? defaultSize;

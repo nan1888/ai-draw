@@ -28,6 +28,10 @@ ai-draw 现在是一个 Codex 插件：Codex 通过 MCP 工具打开本地 tldra
   - `outputFormat`
   - `pollIntervalMs`
   - `timeoutMs`
+- 画布 UI 已内置 happyhorse.pics 推荐配置：
+  - Base URL: `https://happyhorse.pics/v1`
+  - 模型：`gpt-image-2`、`banana2`、`gemini-3.0-pro-image`
+  - 尺寸：`1k`、`2k`、`4k`
 - API Key 保存在本地 `.ai-draw/config.json`，不会回显到浏览器。
 - 如果未配置外部图片 API，旧的 prompt-first Codex 工作流仍可用。
 - 已构建并提交 `packages/*/dist`，支持 Codex Git marketplace 安装。
@@ -78,10 +82,10 @@ AI 操作 -> 更多操作 -> 图片接口设置
 环境变量兜底：
 
 ```bash
-export NEWAPI_BASE_URL="https://your-api-gateway.example.com/v1"
+export NEWAPI_BASE_URL="https://happyhorse.pics/v1"
 export NEWAPI_API_KEY="REPLACE_WITH_YOUR_NEWAPI_KEY"
-export AI_CANVAS_IMAGE_MODEL="gpt-image-2-max"
-export AI_CANVAS_IMAGE_SIZE="1024x1536"
+export AI_CANVAS_IMAGE_MODEL="gpt-image-2"
+export AI_CANVAS_IMAGE_SIZE="1k"
 export AI_CANVAS_IMAGE_QUALITY="auto"
 export AI_CANVAS_IMAGE_OUTPUT_FORMAT="png"
 export AI_CANVAS_IMAGE_TIMEOUT_MS="420000"
@@ -221,6 +225,9 @@ codex plugin add ai-draw@ai-draw
 ```
 
 3. 在画布右侧 `图片接口设置` 填写测试网关和测试 Key。
+   - 推荐网关可用 `https://happyhorse.pics/v1`。
+   - 推荐模型：`gpt-image-2`、`banana2`、`gemini-3.0-pro-image`。
+   - 支持尺寸：`1k`、`2k`、`4k`。
 4. 让 Codex 调用 `generate_image_into_holder`。
 5. 确认生成图片保存到 `.ai-draw/canvases/<canvas-id>/assets/images/`。
 6. 确认图片被插入 holder。

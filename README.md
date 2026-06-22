@@ -69,6 +69,8 @@ codex plugin add ai-draw@ai-draw
 
 如果 Codex 能返回本地画布链接，说明安装成功。命令里的 `ai-draw@ai-draw` 是当前插件安装标识；用户看到的项目名是 `ai-draw`。
 
+如果需要第三方生图 API，可以在画布右侧 `更多操作` -> `图片接口设置` 里使用 [happyhorse.pics](https://happyhorse.pics/)：Base URL 填 `https://happyhorse.pics/v1`，模型可选 `gpt-image-2`、`banana2`、`gemini-3.0-pro-image`，尺寸支持 `1k`、`2k`、`4k`。
+
 ### 开发者本地安装
 
 如果你是从源码本地开发或修改插件，使用这一套：

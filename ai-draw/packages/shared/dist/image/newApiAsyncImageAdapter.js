@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-const DEFAULT_MODEL = 'gpt-image-2-max';
-const DEFAULT_SIZE = '1024x1536';
+const DEFAULT_MODEL = 'gpt-image-2';
+const DEFAULT_SIZE = '1k';
 const DEFAULT_POLL_INTERVAL_MS = 5_000;
 const DEFAULT_TIMEOUT_MS = 420_000;
 function trimTrailingSlash(value) {
@@ -93,7 +93,7 @@ function resolveSize(model, providerSize, defaultSize, aspectRatio) {
     if (providerSize)
         return providerSize;
     if (supportsSeparateAspectRatio(model)) {
-        return defaultSize === DEFAULT_SIZE ? '1K' : defaultSize;
+        return defaultSize === DEFAULT_SIZE ? '1k' : defaultSize;
     }
     if (supportsRatioSize(model))
         return supportedRatio(aspectRatio) ?? defaultSize;

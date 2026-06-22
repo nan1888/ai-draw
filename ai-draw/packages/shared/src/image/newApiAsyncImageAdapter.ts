@@ -78,8 +78,8 @@ type NewApiAsyncImageAdapterOptions = {
   onEvent?: (event: ImageProviderEvent) => void | Promise<void>
 }
 
-const DEFAULT_MODEL = 'gpt-image-2-max'
-const DEFAULT_SIZE = '1024x1536'
+const DEFAULT_MODEL = 'gpt-image-2'
+const DEFAULT_SIZE = '1k'
 const DEFAULT_POLL_INTERVAL_MS = 5_000
 const DEFAULT_TIMEOUT_MS = 420_000
 
@@ -178,7 +178,7 @@ function supportedRatio(aspectRatio?: string) {
 function resolveSize(model: string, providerSize: string | undefined, defaultSize: string, aspectRatio?: string) {
   if (providerSize) return providerSize
   if (supportsSeparateAspectRatio(model)) {
-    return defaultSize === DEFAULT_SIZE ? '1K' : defaultSize
+    return defaultSize === DEFAULT_SIZE ? '1k' : defaultSize
   }
   if (supportsRatioSize(model)) return supportedRatio(aspectRatio) ?? defaultSize
   return inferSizeFromAspectRatio(aspectRatio) || defaultSize

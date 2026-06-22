@@ -149,7 +149,7 @@ async function imageProviderContext(provider?: ImageGenerationProviderOptions, w
   )
   return {
     providerConfigured,
-    providerModel: provider?.model ?? process.env.AI_CANVAS_IMAGE_MODEL ?? 'gpt-image-2-max'
+    providerModel: provider?.model ?? process.env.AI_CANVAS_IMAGE_MODEL ?? 'gpt-image-2'
   }
 }
 

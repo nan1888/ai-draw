@@ -361,6 +361,47 @@ select {
   line-height: 1.4;
 }
 
+.provider-preset {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid #b2ccff;
+  border-radius: 7px;
+  padding: 8px;
+  background: #f5f8ff;
+}
+
+.provider-preset div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.provider-preset strong {
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+.provider-preset span {
+  color: #455468;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.provider-preset button {
+  flex: 0 0 auto;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  padding: 0 8px;
+  min-height: 30px;
+  color: #ffffff;
+  background: #2563eb;
+  cursor: pointer;
+  font-size: 11px;
+}
+
 .settings-panel label {
   display: flex;
   min-width: 0;

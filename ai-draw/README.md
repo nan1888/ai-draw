@@ -142,18 +142,28 @@ The API key is saved locally in `.ai-draw/config.json` under the active workspac
 
 推荐做法是在画布右侧 `更多操作` 里的 `图片接口设置` 填写接口地址、Key、模型和尺寸，然后点击 `保存图片接口`。API Key 会保存在当前工作区的 `.ai-draw/config.json`，或 `AI_DRAW_HOME` 指向的位置。画布界面不会回显已保存的 Key，只显示是否已保存。
 
+Recommended third-party gateway / 推荐第三方网关：
+
+- Base URL: `https://happyhorse.pics/v1`
+- Models / 模型：`gpt-image-2`、`banana2`、`gemini-3.0-pro-image`
+- Sizes / 尺寸：`1k`、`2k`、`4k`
+
+If you need a third-party image API, you can use [happyhorse.pics](https://happyhorse.pics/) and paste its API key into `图片接口设置`. The canvas UI includes a `填入推荐` button that fills the recommended Base URL, model, and size.
+
+如果需要填写第三方生图 API，可以使用 [happyhorse.pics](https://happyhorse.pics/)，把它提供的 API Key 填入 `图片接口设置`。画布里有 `填入推荐` 按钮，会自动填入推荐的 Base URL、模型和尺寸。
+
 Environment variable fallback / 环境变量兜底：
 
 ```bash
-export NEWAPI_BASE_URL="https://your-api-gateway.example.com/v1"
+export NEWAPI_BASE_URL="https://happyhorse.pics/v1"
 export NEWAPI_API_KEY="REPLACE_WITH_YOUR_NEWAPI_KEY"
 ```
 
 Optional environment variables / 可选环境变量：
 
 ```bash
-export AI_CANVAS_IMAGE_MODEL="gpt-image-2-max"
-export AI_CANVAS_IMAGE_SIZE="1024x1536"
+export AI_CANVAS_IMAGE_MODEL="gpt-image-2"
+export AI_CANVAS_IMAGE_SIZE="1k"
 export AI_CANVAS_IMAGE_QUALITY="auto"
 export AI_CANVAS_IMAGE_OUTPUT_FORMAT="png"
 export AI_CANVAS_IMAGE_TIMEOUT_MS="420000"

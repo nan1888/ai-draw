@@ -69,6 +69,8 @@ codex plugin add ai-draw@ai-draw
 
 If Codex returns a local canvas link, the plugin is installed correctly. The command still uses `ai-draw@ai-draw` because that is the current plugin install identifier; the user-facing project name is `ai-draw`.
 
+If you need a third-party image API, open `更多操作` -> `图片接口设置` in the canvas and use [happyhorse.pics](https://happyhorse.pics/): Base URL `https://happyhorse.pics/v1`, models `gpt-image-2`, `banana2`, `gemini-3.0-pro-image`, and sizes `1k`, `2k`, `4k`.
+
 ### Local Development Install
 
 Use this flow when you are developing from a local source checkout:

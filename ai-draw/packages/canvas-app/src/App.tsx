@@ -46,6 +46,14 @@ type WsCommand = {
 type Status = 'connecting' | 'connected' | 'saved' | 'error'
 type CanvasTool = 'select' | 'arrow' | 'text'
 
+const HAPPYHORSE_PROVIDER = {
+  baseUrl: 'https://happyhorse.pics/v1',
+  models: ['gpt-image-2', 'banana2', 'gemini-3.0-pro-image'],
+  sizes: ['1k', '2k', '4k'],
+  defaultModel: 'gpt-image-2',
+  defaultSize: '1k'
+}
+
 function getBounds(editor: Editor, shape: any): Bounds {
   const box = editor.getShapePageBounds(shape.id)
   if (box) return { x: box.x, y: box.y, w: box.w, h: box.h }
@@ -198,8 +206,8 @@ export function App() {
   const [providerForm, setProviderForm] = useState({
     baseUrl: '',
     apiKey: '',
-    model: 'gpt-image-2-max',
-    size: '1024x1536',
+    model: HAPPYHORSE_PROVIDER.defaultModel,
+    size: HAPPYHORSE_PROVIDER.defaultSize,
     quality: 'auto',
     outputFormat: 'png',
     pollIntervalMs: '5000',
@@ -944,6 +952,18 @@ export function App() {
     setProviderForm((current) => ({ ...current, [key]: value }))
   }
 
+  const applyHappyHorsePreset = () => {
+    setProviderForm((current) => ({
+      ...current,
+      baseUrl: current.baseUrl.trim() || HAPPYHORSE_PROVIDER.baseUrl,
+      model: HAPPYHORSE_PROVIDER.defaultModel,
+      size: HAPPYHORSE_PROVIDER.defaultSize,
+      quality: 'auto',
+      outputFormat: 'png'
+    }))
+    setProviderMessage('已填入 happyhorse.pics 推荐配置，请补充 API Key 后保存。')
+  }
+
   const saveImageProvider = async () => {
     try {
       setProviderMessage('正在保存图片接口配置...')
@@ -1287,11 +1307,20 @@ export function App() {
                 <strong>图片接口设置</strong>
                 <span>{providerStatus?.hasApiKey ? '已保存 Key' : '未保存 Key'}</span>
               </div>
+              <div className="provider-preset">
+                <div>
+                  <strong>推荐第三方 API</strong>
+                  <span>happyhorse.pics 支持 gpt-image-2、banana2、gemini-3.0-pro-image 和 1k / 2k / 4k。</span>
+                </div>
+                <button type="button" onClick={applyHappyHorsePreset}>
+                  填入推荐
+                </button>
+              </div>
               <label>
                 <span>Base URL</span>
                 <input
                   value={providerForm.baseUrl}
-                  placeholder="https://your-api-gateway.example.com/v1"
+                  placeholder={HAPPYHORSE_PROVIDER.baseUrl}
                   onChange={(event) => updateProviderForm('baseUrl', event.target.value)}
                 />
               </label>
@@ -1309,15 +1338,27 @@ export function App() {
                   <span>模型</span>
                   <input
                     value={providerForm.model}
+                    list="happyhorse-model-options"
                     onChange={(event) => updateProviderForm('model', event.target.value)}
                   />
+                  <datalist id="happyhorse-model-options">
+                    {HAPPYHORSE_PROVIDER.models.map((model) => (
+                      <option key={model} value={model} />
+                    ))}
+                  </datalist>
                 </label>
                 <label>
                   <span>尺寸</span>
                   <input
                     value={providerForm.size}
+                    list="happyhorse-size-options"
                     onChange={(event) => updateProviderForm('size', event.target.value)}
                   />
+                  <datalist id="happyhorse-size-options">
+                    {HAPPYHORSE_PROVIDER.sizes.map((size) => (
+                      <option key={size} value={size} />
+                    ))}
+                  </datalist>
                 </label>
               </div>
               <div className="settings-grid">

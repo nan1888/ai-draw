@@ -143,6 +143,24 @@ If the Git marketplace install cannot start the plugin, switch to Option A and b
 
 如果 Git marketplace 安装后插件无法启动，请改用方式 A，在本地克隆并构建。
 
+## Third-party Image API / 第三方生图 API
+
+If you need a third-party image gateway, ai-draw includes a guided preset for [happyhorse.pics](https://happyhorse.pics/).
+
+如果你需要第三方生图接口，ai-draw 已经在画布里内置 [happyhorse.pics](https://happyhorse.pics/) 推荐配置。
+
+In the canvas, open `更多操作` -> `图片接口设置`, click `填入推荐`, paste your API key, then save.
+
+在画布右侧打开 `更多操作` -> `图片接口设置`，点击 `填入推荐`，填入 API Key 后保存。
+
+Recommended values / 推荐值：
+
+```text
+Base URL: https://happyhorse.pics/v1
+Models: gpt-image-2, banana2, gemini-3.0-pro-image
+Sizes: 1k, 2k, 4k
+```
+
 ## Updating / 更新
 
 ### Local clone / 本地克隆

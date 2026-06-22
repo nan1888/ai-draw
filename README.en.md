@@ -160,7 +160,7 @@ Codex reads `.agents/plugins/marketplace.json` from this repository root. The ma
 ## Privacy
 
 - The canvas service runs locally on `127.0.0.1`, default port `43218`.
---draw state and generated assets are stored locally under `.ai-draw/` in the active workspace unless `AI_DRAW_HOME` is set.
+- ai-draw state and generated assets are stored locally under `.ai-draw/` in the active workspace unless `AI_DRAW_HOME` is set.
 - Local runtime data, temporary QA data, dependency folders, logs, and environment files are ignored by Git.
 - The plugin does not include a hosted backend. It is a local Codex plugin workflow.
 
@@ -187,6 +187,12 @@ Open:
 ```text
 http://127.0.0.1:43218/
 ```
+
+## Acknowledgements
+
+ai-draw references code and implementation ideas from [binghe1980/AI-Canvas](https://github.com/binghe1980/AI-Canvas). Thanks to [binghe1980](https://github.com/binghe1980), the original source author, for the open-source work that helped establish the Codex-integrated local canvas, AI image generation, and annotation-driven editing workflow.
+
+This project also thanks [tldraw](https://github.com/tldraw/tldraw) for the infinite-canvas foundation and the [Model Context Protocol TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) for MCP tool integration.
 
 ## License
 

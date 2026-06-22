@@ -188,6 +188,12 @@ NODE_ENV=production node packages/canvas-app/dist/server/server.js \
 http://127.0.0.1:43218/
 ```
 
+## 参考与致谢
+
+ai-draw 的代码实现参考了 [binghe1980/AI-Canvas](https://github.com/binghe1980/AI-Canvas)。感谢源代码作者 [binghe1980](https://github.com/binghe1980) 的开源工作，为 Codex 集成本地无限画布、AI 生图和标注修图流程提供了重要基础。
+
+本项目也感谢 [tldraw](https://github.com/tldraw/tldraw) 提供无限画布能力，以及 [Model Context Protocol TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) 提供 MCP 工具接入基础。
+
 ## 许可证
 
 MIT. See [LICENSE](./LICENSE).

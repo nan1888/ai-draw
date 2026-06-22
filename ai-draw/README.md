@@ -269,7 +269,7 @@ scripts/validate-plugin.mjs     Lightweight release validation
 English:
 
 - The canvas service runs locally on `127.0.0.1`, default port `43218`.
---draw data is stored in `.ai-draw/` under the active workspace unless `AI_DRAW_HOME` is set.
+- ai-draw data is stored in `.ai-draw/` under the active workspace unless `AI_DRAW_HOME` is set.
 - Generated and edited images are copied into the local canvas asset directory.
 - `.ai-draw/`, `tmp/`, `node_modules/`, and TypeScript build info files are ignored by Git.
 
@@ -286,7 +286,7 @@ English:
 
 - Codex cannot find ai-draw: restart Codex or open a new chat after installing the plugin.
 - MCP tools are missing: reinstall the plugin with `codex plugin add ai-draw@ai-draw`.
---draw does not open: check whether port `43218` is already used, or set `AI_DRAW_PORT`.
+- ai-draw does not open: check whether port `43218` is already used, or set `AI_DRAW_PORT`.
 - Image edits do not start: say `@ai-draw 开启自动修图模式`, then click `按标注修图` on the canvas.
 
 中文：
@@ -295,6 +295,16 @@ English:
 - MCP 工具没有加载：重新运行 `codex plugin add ai-draw@ai-draw`。
 - 画布打不开：检查 `43218` 端口是否被占用，或设置 `AI_DRAW_PORT`。
 - 点按钮后没有修图：先说 `@ai-draw 开启自动修图模式`，再在画布点击 `按标注修图`。
+
+## Acknowledgements / 参考与致谢
+
+ai-draw references code and implementation ideas from [binghe1980/AI-Canvas](https://github.com/binghe1980/AI-Canvas). Thanks to [binghe1980](https://github.com/binghe1980), the original source author, for the open-source work that helped establish the Codex-integrated local canvas, AI image generation, and annotation-driven editing workflow.
+
+ai-draw 的代码实现参考了 [binghe1980/AI-Canvas](https://github.com/binghe1980/AI-Canvas)。感谢源代码作者 [binghe1980](https://github.com/binghe1980) 的开源工作，为 Codex 集成本地无限画布、AI 生图和标注修图流程提供了重要基础。
+
+This project also thanks [tldraw](https://github.com/tldraw/tldraw) for the infinite-canvas foundation and the [Model Context Protocol TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) for MCP tool integration.
+
+本项目也感谢 [tldraw](https://github.com/tldraw/tldraw) 提供无限画布能力，以及 [Model Context Protocol TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) 提供 MCP 工具接入基础。
 
 ## License / 许可证
 
